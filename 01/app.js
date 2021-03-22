@@ -32,7 +32,9 @@
 //     console.log('hero');
 // }
 
-console.log(typeof 1);
-console.log(typeof []);
-console.log(typeof '1');
-console.log(typeof {});
+// console.log(typeof 1);
+// console.log(typeof []);
+// console.log(typeof '1');
+// console.log(typeof {});
+
+
