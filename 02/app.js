@@ -44,12 +44,38 @@ todos.forEach(function(todo){
 //     console.log('2')
 // }
 
-// 평균 구하기
-const arr = [10, 20, 30, 40, 50, 60, 70, 100];
+// window.alert('1');
+// var who = prompt('당신은 누구세요?');
+// console.log(who);
 
-const result = arr.reduce(function add(sum, currValue) {
-  return sum + currValue;
-}, 0);
-const average = result / arr.length;
+// var isDelete = confirm('정말 삭제하시겠습니까?');
+// console.log(isDelete);
 
-document.writeln(average); 
+// function sum(a, b) {
+//     return a + b;
+// }
+// sum(1, 3);
+
+// var car = {
+//     year: '2014',
+//     starting: function() {
+//       console.log('starting..');
+//     },
+// };
+  
+// car.starting();
+
+// 함수 선언 동시에 실행
+// (function() {
+//     var a = 'a';
+//     console.log(a);
+// })();
+
+function sum(x, y) {
+    if (!y) y = 1;
+    console.log(x + y);
+}
+console.log(sum(3));
+console.log(sum(3, 3));
+
+
