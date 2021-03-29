@@ -1,18 +1,18 @@
 console.log('app');
 
 
-//creat
-var todos = ['운동']
-var todo = '게임';
-todos.push(todo);
-console.log(todos);
+// //creat
+// var todos = ['운동']
+// var todo = '게임';
+// todos.push(todo);
+// console.log(todos);
 
-//read
+// //read
 
-todos.forEach(function(todo){
+// todos.forEach(function(todo){
 
-    console.log(todo);
-});
+//     console.log(todo);
+// });
 
 //update
 // var todos = ['운동', '게임']
@@ -71,11 +71,21 @@ todos.forEach(function(todo){
 //     console.log(a);
 // })();
 
-function sum(x, y) {
-    if (!y) y = 1;
-    console.log(x + y);
-}
-console.log(sum(3));
-console.log(sum(3, 3));
+// function sum(x, y) {
+//     if (!y) y = 1;
+//     console.log(x + y);
+// }
+// console.log(sum(3));
+// console.log(sum(3, 3));
 
+var input = prompt('더할 숫자를 입력해주세요!', '');
+var sum = 0;
+while (true){
+    alert(input);
+    sum += input;
+    if(input == null){
+        alert(sum);
+        break;
+    }
+}
 
