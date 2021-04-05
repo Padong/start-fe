@@ -1,18 +1,21 @@
-import cv2
+def  is_prime2(a):
+    b = range(2, a)
+    c = 0
+    for i in b:
+        if a%i == 0:
+            c += 1
+    if c> 0:
+        d = False
+    else:
+        d= True
+    return d
 
-import numpy as np
+a = range(1, 101)
+prime_num = []
+for i in a:
+    c = is_prime2(i)
+    if c == True:
+        prime_num.append(i)
 
-img = np.zeros((350, 250, 3))
 
-print(img)
-print(img.shape)
-
-cv2.imshow('Before', img)
-
-img[200:250, :] = [255, 255, 255]
-img[:, 100:150] = [255, 0, 1]
-
-cv2.imshow('After', img)
-
-cv2.waitKey(0)
-cv2.destroyAllWindows()
+print(prime_num)

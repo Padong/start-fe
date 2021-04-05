@@ -4,10 +4,41 @@
     <meta charset=utf-8 />
     <title>source</title>
 </head>
+<style>
+    #board{
+        width:400px;
+        height: 400px;
+        border:solid silver 5px;
+        margin: 0 auto;
+    }
+    #board div{
+        width: 100px;
+        height: 100px;
+        float: left;
+    }
+    .black{
+        float: left;
+        text-align: center;
+        display: table;
+        background: black;
+    }
+    .white{
+        float: left;
+        text-align: center;
+        display: table;
+        background: white;
+    }
+    .red{
+        float: left;
+        text-align: center;
+        display: table;
+        background: red;
+    }
+</style>
 <body>
 
 <div id="board">
-    <!-- 이 HTML을 자바스크립트로 추가하면 됩니다.
+    <!--
       <span class="black"></span>
       <span class="white"></span>
       <span class="black"></span>
@@ -27,11 +58,25 @@
     //-->
 </div>
 <script>
-    var board = document.getElementById("board");
+    var color = ['black', 'white'];
+    var $board = document.getElementById("board");
     for(var i=0; i<4; i++){
         for(var j=0; j<4; j++){
-            // TODO : 여기에 필요한 코드를 작성해주세요.
+            var square = document.createElement("div");
+            square.className = color[((i+j)%2)];
+            $board.appendChild(square);
+            square.addEventListener('click', clickevent);
         }
+    }
+
+    function clickevent(event){
+        var clicksquare = event.currentTarget;
+        var redsquare = null;
+        var change = document.querySelector('.red')
+        if(redsquare = change){
+            redsquare.className = redsquare.className.replace(' red', '');
+        }
+        clicksquare.className += ' red';
     }
 </script>
 </body>
