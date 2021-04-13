@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="kr">
+<head>
+    <meta charset="UTF-8">
+    <title>문제소스</title>
+</head>
+<body>
+    <center>
+      <div id="wrap"></div>
+    </center>
+  <div>
+    <center>
+      <button class="btnPrev"> < </button>
+      <span class="page">page</span>/<span class="totalPage">totalPage</span>
+      <button class="btnNext"> > </button>
+    </center>
+  </div>
+
+  <script>
+      var todayPhoto = [
+          {"url":"http://media.daum.net/photo/2841","img":"http://icon.daumcdn.net/w/c/12/05/82877085750988319.jpeg","title":"&quot;뜨면 끝장&quot; 최강 공격헬기 성능이 설마","id":"20120516082207657"}
+          ,{"url":"http://media.daum.net/entertain/photo/gallery/?gid=100320","img":"http://icon.daumcdn.net/w/c/12/05/82876693901189319.jpeg","title":"&#39;오늘만&#39; 필리핀 새댁 5개국어 능통 엄친딸","id":"20120516091011626"}
+          ,{"url":"http://media.daum.net/photo/4010","img":"http://icon.daumcdn.net/w/c/12/05/82876307459008319.jpeg","title":"[북한 결혼식 풍경] 신랑·신부 &quot;행복합니다&quot;","id":"20120516092605081"}
+          ,{"url":"http://sports.media.daum.net/general/gallery/gagsports/index.html","img":"http://icon.daumcdn.net/w/c/12/05/81730673405131839.jpeg","title":"&#39;내가 더 잘해&#39; 후보GK 경기 난입해 선방","id":"20120516100608409"}
+          ,{"url":"http://sports.media.daum.net/general/gallery/0516ufc/index.html","img":"http://icon.daumcdn.net/w/c/12/05/81728759258718839.jpeg","title":"양동이의 하이킥에 타바레스 &#39;주춤&#39;","id":"20120516093313331"}
+          ,{"url":"http://media.daum.net/entertain/photo/gallery/?gid=100539","img":"http://icon.daumcdn.net/w/c/12/05/81728404408992839.jpeg","title":"이승철 아내와 딸 사진 공개 &quot;사주에. .&quot;","id":"20120516093918544"}
+          ,{"url":"http://media.daum.net/photo/3899","img":"http://icon.daumcdn.net/w/c/12/05/81728227037306839.jpeg","title":"생후 6개월에 프랑스로 입양됐던 아이가..","id":"20120516030614331"}
+          ,{"url":"http://sports.media.daum.net/general/gallery/STARKIMYUNA/index.html","img":"http://icon.daumcdn.net/w/c/12/05/81727815537682839.jpeg","title":"&#39;교생&#39; 김연아, 스승의날에도 인기폭발","id":"20120516092003892"}
+      ];
+      
+      // 개수, 페이지, 전체 페이지 변수 선언
+      var numOfList = 3;
+      var numOfPage = 1;
+      var numOfTotalPage = Math.ceil(todayPhoto.length / numOfList );
+      
+      // dom 관리
+      var wrap = document.getElementById('wrap');
+      var btnPrev = document.querySelector('.btnPrev');
+      var btnNext = document.querySelector('.btnNext');
+      var page = document.querySelector('.page');
+      var totalPage = document.querySelector('.totalPage');
+
+      // prev 버튼 함수
+      function prev() {
+        if (numOfPage === 1) { // 첫번째 페이지일때
+          return;
+        }
+        else { // 2 ~ 마지막일때
+          numOfPage --;
+          carousel(numOfPage);
+        }
+      }
+
+      // next 버튼 함수
+      function next() {
+        if (numOfPage === numOfTotalPage) { // 마지막 페이지일때
+          return;
+        }
+        else { // 1 ~ total - 1 페이지일때
+          numOfPage ++;
+          carousel(numOfPage);
+        }
+      }
+
+      // 첫번째 인덱스를 가져오는 함수
+      function getIndex(numOfPage) {
+        var index = (numOfPage - 1) * numOfList;
+        return index; 
+      }
+
+      // carousel을 보여주는 함수
+      function carousel(numOfPage) {
+        var index = getIndex(numOfPage);
+        var str = '';
+        for(var i=index; i<numOfList + index; i++){
+          if (todayPhoto[i]){
+            str += '<img src="'+todayPhoto[i].img+'"> ';
+          }
+        }
+        wrap.innerHTML = str;
+        page.innerHTML = numOfPage;
+        totalPage.innerHTML = numOfTotalPage;
+      }
+
+    // 함수 호출
+    carousel(numOfPage);
+
+    // 버튼에 클릭이벤트 추가
+    btnPrev.addEventListener('click', prev);
+    btnNext.addEventListener('click', next);
+
+  </script>
+
+</body>
+</html>

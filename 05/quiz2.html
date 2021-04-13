@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset=utf-8 />
+    <title>source</title>
+    <style>
+      #board {
+        width: 400px;
+        border: 5px solid whitesmoke;
+        height: 400px;
+      }
+      span {
+        width: 100px;
+        height: 100px;
+        display: block;
+        float: left;
+      }
+      .black {
+        background-color: black;
+      }
+      .white {
+        background-color: white;
+      }
+      .select {
+        background-color: red;
+      }
+    </style>
+</head>
+<body>
+
+<div id="board">
+    <!-- 이 HTML을 자바스크립트로 추가하면 됩니다.
+      <span class="black"></span>
+      <span class="white"></span>
+      <span class="black"></span>
+      <span class="white"></span>
+      <span class="white"></span>
+      <span class="black"></span>
+      <span class="white"></span>
+      <span class="black"></span>
+      <span class="black"></span>
+      <span class="white"></span>
+      <span class="black"></span>
+      <span class="white"></span>
+      <span class="white"></span>
+      <span class="black"></span>
+      <span class="white"></span>
+      <span class="black"></span>
+    //-->
+  </div>
+  <script>
+    var $select = null;
+    
+    function printChessBoards() {
+      var $board = document.getElementById("board");
+      var black = 'black';
+      var white = 'white';
+      var nextLine = '\n';
+      var str = '';
+      for(var row=1; row<5; row++){
+        for(var col=1; col<5; col++){
+          if(row % 2 === 1 && col % 2 === 0){
+            str += '<span class="' + black + '"></span>';
+            str += '<span class="' + white + '"></span>';
+          }
+          else if(row % 2 === 0 && col % 2 === 1){
+            str += '<span class="' + white + '"></span>';
+            str += '<span class="' + black + '"></span>';
+          }
+        }
+        nextLine;          
+      }
+      $board.innerHTML = str;
+    }
+    
+    
+    function select(event) {
+      if($select) {
+        $select.className = $select.className.replace(' select', '');
+      }
+      var el = event.currentTarget;
+      el.className += ' select';
+      $select = el;
+    }
+    
+    function addEvent() {
+      var numOfBoards = 16; 
+      var $boards = document.querySelectorAll('span');
+      var boardsLength = $boards.length;
+    for (var i=0; i<numOfBoards; i++) {
+      $boards[i].addEventListener('click', select);
+    }
+  }
+
+  printChessBoards();
+  addEvent();
+  
+</script>
+</body>
+</html>
