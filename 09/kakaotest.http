@@ -1,0 +1,5 @@
+GET https://dapi.kakao.com/v2/search/web?query=kakao
+Content-Type: application/json
+{
+    "Authorization" : "KakaoAK 7c853c5448aeb868d7a2b01c0885ae67"
+}
